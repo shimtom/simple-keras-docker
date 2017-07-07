@@ -51,6 +51,9 @@ RUN pip3 --no-cache-dir install \
 # install tensorflow
 RUN pip3 install tensorflow-gpu
 
+# For CUDA profiling, TensorFlow requires CUPTI.
+ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+
 # TensorBoard
 EXPOSE 6006
 
